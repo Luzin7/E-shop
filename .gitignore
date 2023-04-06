@@ -11,12 +11,9 @@ node_modules
 dist
 dist-ssr
 yarn.lock
-vite.config.js
-.eslint.json
 *.local
 
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
