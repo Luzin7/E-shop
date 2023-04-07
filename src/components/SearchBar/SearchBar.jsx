@@ -14,7 +14,7 @@ export default function SearchBar() {
 	const handleSearchInput = (target) => {
 		setSearchInput(target);
 	};
-	
+
 	useEffect(() => {
 		if (searchInput) {
 			if (delayToCallApi.current) clearInterval(delayToCallApi.current);
@@ -24,7 +24,7 @@ export default function SearchBar() {
 					setSearch(res);
 				});
 			}, 1000);
-			
+
 			return () => clearInterval(delayToCallApi.current);
 		}
 	}, [searchInput]);
