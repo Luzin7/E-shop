@@ -18,7 +18,7 @@ export default function Products() {
 					))}
 				</>
 			) : (
-				<EmptySearchBackground></EmptySearchBackground>
+				<EmptySearchBackground alt="Imagem de storyset no Freepik"></EmptySearchBackground>
 			)}
 		</>
 	);
