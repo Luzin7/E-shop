@@ -9,7 +9,6 @@ const HeaderWrapper = styled.div`
 
 const HeaderBar = styled.header`
   background-color: #ffdeb4;
-  position: fixed;
   width: 100%;
 `;
 
