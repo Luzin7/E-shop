@@ -1,0 +1,55 @@
+# E-shop
+
+Este é um projeto chamado E-shop, que é uma aplicação web onde o usuário pode pesquisar produtos, adicioná-los ao carrinho de compras e removê-los do carrinho. O projeto foi desenvolvido com React.js e Vite, e utiliza a API do Mercado Livre para realizar as pesquisas.
+
+## Funcionalidades
+
+O E-shop possui as seguintes funcionalidades:
+
+- Pesquisar produtos na API do Mercado Livre
+- Adicionar produtos ao carrinho de compras (Em desenvolvimento)
+- Remover produtos do carrinho de compras (Em desenvolvimento)
+- Limpar completamente o carrinho de compras (Em desenvolvimento)
+
+## Tecnologias Utilizadas
+
+O E-shop foi desenvolvido utilizando as seguintes tecnologias:
+
+- React.js
+- React Icons
+- React Hooks
+- Vite
+- Axios
+- Styled Components
+
+## Como executar o projeto
+
+Para executar o projeto em sua máquina local, siga os passos abaixo:
+
+
+1. Clone o repositório do projeto para sua máquina local
+
+```bash
+git clone https://github.com/seu-usuario/e-shop.git
+```
+
+2. Entre no diretório do projeto
+```bash
+cd e-shop
+```
+
+3. Instale as dependências do projeto
+```bash
+npm install ou yarn
+```
+
+4. Execute o projeto
+```bash
+npm run dev ou yarn dev
+```
+
+5. Abra o navegador e acesse http://localhost:3000 para visualizar a aplicação
+
+## Como utilizar a aplicação
+
+Ao acessar a aplicação, você verá uma barra de pesquisa onde poderá digitar o produto que deseja pesquisar. Após clicar em no ícone de lupa ou apertar a tecla "Enter", os resultados da pesquisa serão exibidos. As outras funcionalidades estão em desenvolvimento.
