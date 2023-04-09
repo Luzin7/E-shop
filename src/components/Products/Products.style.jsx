@@ -1,9 +1,18 @@
 import styled from 'styled-components';
 
 import DiscountBG from '../../assets/imgs/Discount-cuate.png';
+import NoResultsBG from '../../assets/imgs/Broken-light-bulb-cuate.png';
 
 const EmptySearchBackground = styled.div`
   background-image: url(${DiscountBG});
+  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+`;
+
+const EmptySearchResultsBackground = styled.div`
+  background-image: url(${NoResultsBG});
   height: 70vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -105,6 +114,7 @@ const ProductImage = styled.div`
 
 export {
 	EmptySearchBackground,
+	EmptySearchResultsBackground,
 	ProductsWrapper,
 	ProductWrapper,
 	ProductContent,
