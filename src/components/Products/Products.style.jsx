@@ -112,6 +112,12 @@ const ProductImage = styled.div`
   }
 `;
 
+const ProductPrice = styled.span`
+    color: black;
+    font-weight: 500;
+    font-size: 2em;
+`;
+
 export {
 	EmptySearchBackground,
 	EmptySearchResultsBackground,
@@ -120,4 +126,5 @@ export {
 	ProductContent,
 	ProductImage,
 	ProductFreeShippingWrapper,
+	ProductPrice,
 };
