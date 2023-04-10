@@ -5,12 +5,13 @@ import { CartContext } from '../../contexts/CartContext';
 
 
 export default function CartButton() {
-	const { productsCart } = useContext(CartContext);
+	const { productsCart, isSideNavBarActive,  setIsSideNavBarActive } = useContext(CartContext);
 
+	
 	const totalProductsCount = productsCart.length;
-
+	
 	return (
-		<ShoppingButton>
+		<ShoppingButton onClick={() => setIsSideNavBarActive(!isSideNavBarActive)}>
 			<AiOutlineShoppingCart />
 			{totalProductsCount > 0 ? <ShoppingButtonStatus>{totalProductsCount}</ShoppingButtonStatus> : null}
 		</ShoppingButton>
