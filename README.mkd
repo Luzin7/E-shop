@@ -30,7 +30,7 @@ Para executar o projeto em sua máquina local, siga os passos abaixo:
 1. Clone o repositório do projeto para sua máquina local
 
 ```bash
-git clone https://github.com/seu-usuario/e-shop.git
+git clone https://github.com/Luzin7/e-shop.git
 ```
 
 2. Entre no diretório do projeto
