@@ -9,15 +9,18 @@ import {
 	ProductImage,
 	ProductWrapper,
 	ProductsWrapper,
+	ProductPrice,
 } from './Products.style';
+import Cart from '../Cart/Cart';
 import { MdLocalShipping } from 'react-icons/md';
 
 export default function Products() {
 	const { search } = useContext(SearchContext);
-	const { addProductToCart } = useContext(CartContext);
+	const { addProductToCart, isSideNavBarActive } = useContext(CartContext);
 
 	return (
 		<>
+			{isSideNavBarActive ? <Cart /> : null}
 			{search ? (
 				search.length > 0 ? (
 					<ProductsWrapper>
@@ -26,7 +29,7 @@ export default function Products() {
 								<ProductContent>
 									<button
 										type="button"
-										onClick={() => addProductToCart(product.id)}
+										onClick={() => addProductToCart(product.id, product.thumbnail, product.price)}
 									>
                     Compra
 									</button>
@@ -46,7 +49,7 @@ export default function Products() {
 											? `R$${product.original_price}`
 											: null}
 									</span>
-									<span className="product__price">R${product.price}</span>
+									<ProductPrice>R${product.price}</ProductPrice>
 									<p key={product.id}>{product.title}</p>
 								</ProductContent>
 							</ProductWrapper>
