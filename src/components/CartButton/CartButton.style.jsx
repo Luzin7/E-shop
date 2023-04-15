@@ -12,6 +12,17 @@ const ShoppingButton = styled.button`
   position: relative;
   margin-left: 20px;
   color: black;
+
+  @media screen and (max-width: 412px){
+    font-size: 2.7em;
+    position: fixed;
+    top: 80vh;
+    right: 10vw;
+    background: #b2a4ff;
+    border-radius: 100%;
+    z-index: 1000;
+    color: white;
+  }
 `;
 
 const ShoppingButtonStatus = styled.span`

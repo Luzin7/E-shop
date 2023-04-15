@@ -1,12 +1,19 @@
-import { React} from 'react';
+import { React } from 'react';
 import Header from './components/header/Header';
+import Products from './components/Products/Products';
+import { SearchContextProvider } from './contexts/SearchContext';
+import { CartContextProvider } from './contexts/CartContext';
 
 function App() {
-
 	return (
-		<div className="App">
-			<Header />
-		</div>
+		<>
+			<SearchContextProvider>
+				<CartContextProvider>
+					<Header />
+					<Products />
+				</CartContextProvider>
+			</SearchContextProvider>
+		</>
 	);
 }
 
