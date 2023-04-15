@@ -1,12 +1,19 @@
-import React from 'react';
+import {React, useContext} from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { ShoppingButton, ShoppingButtonStatus } from './CartButton.style';
+import { CartContext } from '../../contexts/CartContext';
+
 
 export default function CartButton() {
+	const { productsCart, isSideNavBarActive,  setIsSideNavBarActive } = useContext(CartContext);
+
+	
+	const totalProductsCount = productsCart.length;
+	
 	return (
-		<ShoppingButton>
+		<ShoppingButton onClick={() => setIsSideNavBarActive(!isSideNavBarActive)}>
 			<AiOutlineShoppingCart />
-			<ShoppingButtonStatus>7</ShoppingButtonStatus>
+			{totalProductsCount > 0 ? <ShoppingButtonStatus>{totalProductsCount}</ShoppingButtonStatus> : null}
 		</ShoppingButton>
 	);
 }
