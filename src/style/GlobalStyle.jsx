@@ -13,4 +13,26 @@ export const GlobalStyle = createGlobalStyle`
 body {
   background-color: #FFF9CA;
 }
+
+.btn{
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-icon{
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.1s;
+}
+
+.btn-icon:hover{
+  transform: scale(1.4)
+}
+
+.btn-icon:active{
+  color: #b2a4ff;
+  ;
+}
 `;
