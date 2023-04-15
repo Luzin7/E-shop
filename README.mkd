@@ -7,9 +7,9 @@ Este é um projeto chamado E-shop, que é uma aplicação web onde o usuário po
 O E-shop possui as seguintes funcionalidades:
 
 - Pesquisar produtos na API do Mercado Livre
-- Adicionar produtos ao carrinho de compras (Em desenvolvimento)
-- Remover produtos do carrinho de compras (Em desenvolvimento)
-- Limpar completamente o carrinho de compras (Em desenvolvimento)
+- Adicionar produtos ao carrinho de compras
+- Remover produtos do carrinho de compras
+- Limpar completamente o carrinho de compras
 
 ## Tecnologias Utilizadas
 
@@ -52,4 +52,4 @@ npm run dev ou yarn dev
 
 ## Como utilizar a aplicação
 
-Ao acessar a aplicação, você verá uma barra de pesquisa onde poderá digitar o produto que deseja pesquisar. Após clicar em no ícone de lupa ou apertar a tecla "Enter", os resultados da pesquisa serão exibidos. As outras funcionalidades estão em desenvolvimento.
+Ao acessar a aplicação, você verá uma barra de pesquisa onde poderá digitar o produto que deseja pesquisar. Após clicar no ícone de lupa ou apertar a tecla "Enter", os resultados da pesquisa serão exibidos. Para adicionar os produtos ou o produto em específico basta clicar no botão "Adicionar ao carrinho", dentro do carrinho de compras, o usuário poderá visualizar o produto, a quantidade e valor. Além de visualizar se há produtos com frete grátis, adicionar mais do mesmo produto ou remover o mesmo.
