@@ -7,7 +7,7 @@ import { SearchContext } from '../../contexts/SearchContext';
 export default function SearchBar() {
 	const [searchInput, setSearchInput] = useState('');
 
-	const { setSearch } = useContext(SearchContext);
+	const { setResultsBySearch } = useContext(SearchContext);
 
 	const handleSearchInput = (target) => {
 		setSearchInput(target);
@@ -15,8 +15,8 @@ export default function SearchBar() {
 
 	const searchUserQuery = () => {
 		if (searchInput) {
-			getResultsByQuery(searchInput).then((res) => {
-				setSearch(res);
+			getResultsByQuery(searchInput).then((queryOfUser) => {
+				setResultsBySearch(queryOfUser);
 			});
 		}
 	};
@@ -31,7 +31,7 @@ export default function SearchBar() {
 			<InputBar
 				value={searchInput}
 				type="text"
-				placeholder="Pesquise o produto..."
+				placeholder="Pesquise produtos, marcas..."
 				onInput={({ target }) => handleSearchInput(target.value)}
 			/>
 			<ButtonSearch

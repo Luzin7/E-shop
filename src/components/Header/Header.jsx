@@ -7,6 +7,7 @@ export default function Header() {
 	return (
 		<HeaderBar>
 			<HeaderWrapper>
+				<h1>E-shop</h1>
 				<SearchBar />
 				<CartButton />
 			</HeaderWrapper>
