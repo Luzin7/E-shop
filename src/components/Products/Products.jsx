@@ -15,31 +15,25 @@ import Cart from '../Cart/Cart';
 import { MdLocalShipping } from 'react-icons/md';
 
 export default function Products() {
-	const { search } = useContext(SearchContext);
+	const { resultsBySearch } = useContext(SearchContext);
 	const { addProductToCart, isSideNavBarActive } = useContext(CartContext);
 
 	return (
 		<>
 			{isSideNavBarActive ? <Cart /> : null}
-			{search ? (
-				search.length > 0 ? (
+			{resultsBySearch ? (
+				resultsBySearch.length > 0 ? (
 					<ProductsWrapper>
-						{search.map((product) => (
+						{resultsBySearch.map((product) => (
 							<ProductWrapper key={product.id}>
 								<ProductContent>
-									<button
-										type="button"
-										onClick={() => addProductToCart(product.id, product.thumbnail, product.price)}
-									>
-                    Compra
-									</button>
 									<ProductImage>
 										<img src={product.thumbnail} alt={product.title} />
 										{product.shipping.free_shipping ? (
 											<ProductFreeShippingWrapper>
 												<MdLocalShipping className="free__shipping__icon" />
 												<span className="free__shipping__text">
-                          Frete grátis
+													Frete grátis
 												</span>
 											</ProductFreeShippingWrapper>
 										) : null}
@@ -51,6 +45,19 @@ export default function Products() {
 									</span>
 									<ProductPrice>R${product.price}</ProductPrice>
 									<p key={product.id}>{product.title}</p>
+									<button
+										type="button"
+										onClick={() =>
+											addProductToCart(
+												product.id,
+												product.thumbnail,
+												product.price,
+												product.shipping.free_shipping
+											)
+										}
+									>
+										Adicionar ao carrinho
+									</button>
 								</ProductContent>
 							</ProductWrapper>
 						))}
