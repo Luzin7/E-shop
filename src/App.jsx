@@ -1,5 +1,5 @@
 import { React } from 'react';
-import Header from './components/header/Header';
+import Header from './components/Header/Header';
 import Products from './components/Products/Products';
 import { SearchContextProvider } from './contexts/SearchContext';
 import { CartContextProvider } from './contexts/CartContext';
