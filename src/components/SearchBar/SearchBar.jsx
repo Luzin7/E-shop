@@ -23,7 +23,6 @@ export default function SearchBar() {
 
 	return (
 		<SearchBarWrapper
-			role="form"
 			onSubmit={(e) => {
 				e.preventDefault();
 				searchUserQuery();
