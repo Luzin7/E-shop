@@ -1,32 +1,76 @@
-import {React, useContext} from 'react';
-import {SideNavBar, SideNavBarHeader, SideNavBarCloseButton, SideNavBarProductsWrapper, Product, ProductImage } from './Cart.style';
+import { React, useContext } from 'react';
+import {
+	MdOutlineRemoveCircleOutline,
+	MdOutlineAddCircleOutline,
+} from 'react-icons/md';
 import { CartContext } from '../../contexts/CartContext';
-import { AiOutlineClose } from 'react-icons/ai';
 import { ProductPrice } from '../Products/Products.style';
-
+import {
+	SideNavBar,
+	SideNavBarHeader,
+	SideNavBarProductsWrapper,
+	Product,
+	ProductImage,
+	QuantityOfProduct,
+	TotalPriceLabel,
+	TotalPriceValue,
+	AlertAboutProducts,
+	ClearCartBtn,
+} from './Cart.style';
 
 export default function Cart() {
-	const { productsCart, isSideNavBarActive, setIsSideNavBarActive } = useContext(CartContext);
+	const { productsCart, addProductToCart, removeProductToCar, clearCart } =
+		useContext(CartContext);
 
-	const totalProductsCount = productsCart.length;
-
-	const showQtdToUser = () => {
-		if(totalProductsCount === 0) {
-			return 'Seu carrinho está vazio';
-		} else if(totalProductsCount === 1) {
-			return 'Você tem apenas um item no carrinho';
-		} else {
-			return `Você tem ${totalProductsCount} itens no carrinho`;
+	const showTotalPrice = () => {
+		const prices = [];
+		for (let i = 0; i < productsCart.length; i++) {
+			prices.push(productsCart[i].price * productsCart[i].qtd);
 		}
+
+		return parseFloat(prices.reduce((acc, cur) => acc + cur, 0).toFixed(2));
 	};
+
+	const showQtdOfFreeShipping = () => {
+		let freeShippingCount = 0;
+		for (let i = 0; i < productsCart.length; i++) {
+			productsCart[i].free_shipping
+				? (freeShippingCount = freeShippingCount + 1)
+				: null;
+		}
+
+		if (freeShippingCount === 1) {
+			return (
+				<>
+					Seja bem vindo(a) ao E-shop. Um dos seus pedidos possui{' '}
+					<b>frete GRÁTIS</b>, que ótimo!
+				</>
+			);
+		} else if (freeShippingCount > 1) {
+			return (
+				<>
+					Seja bem vindo(a) ao E-shop. Você possui {freeShippingCount} produtos
+					com <b>frete GRÁTIS</b>, que ótimo!
+				</>
+			);
+		} else
+			return 'Seja bem vindo(a) ao E-shop. Aproveite nossos produtos e boas compras!';
+	};
+
 	return (
 		<>
-			<SideNavBar>
+			<SideNavBar className="open">
 				<SideNavBarHeader>
-					<SideNavBarCloseButton onClick={() => setIsSideNavBarActive(!isSideNavBarActive)} >
-						<AiOutlineClose />
-					</SideNavBarCloseButton>
-					<span>{showQtdToUser()}</span>
+					<TotalPriceLabel>Subtotal</TotalPriceLabel>
+					<TotalPriceValue>{`R$${showTotalPrice()}`}</TotalPriceValue>
+					<AlertAboutProducts>{showQtdOfFreeShipping()}</AlertAboutProducts>
+					<ClearCartBtn
+						className="btn"
+						type="button"
+						onClick={() => clearCart()}
+					>
+						Limpar carrinho
+					</ClearCartBtn>
 				</SideNavBarHeader>
 				<SideNavBarProductsWrapper>
 					{productsCart.map((product) => (
@@ -34,7 +78,17 @@ export default function Cart() {
 							<ProductImage>
 								<img src={product.img} alt={product.id} />
 							</ProductImage>
-							<span>Qtd: {product.qtd}</span>
+							<QuantityOfProduct>
+								<MdOutlineAddCircleOutline
+									onClick={() => addProductToCart(product.id)}
+									className="btn-icon"
+								/>
+								<span>{`Qtd: ${product.qtd}`}</span>
+								<MdOutlineRemoveCircleOutline
+									onClick={() => removeProductToCar(product.id)}
+									className="btn-icon"
+								/>
+							</QuantityOfProduct>
 							<ProductPrice>{`R$${product.price}`}</ProductPrice>
 						</Product>
 					))}
